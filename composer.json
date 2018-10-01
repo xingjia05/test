@@ -1,0 +1,25 @@
+{
+    "name": "stone-breaker/test",
+    "description": "stone component",
+    "keywords": [
+        "test",
+        "php"
+    ],
+    "homepage": "https://github.com/xingjia05/test",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "xingjia",
+            "email": "xingjia01@126.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+        }
+    }
+}
