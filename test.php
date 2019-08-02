@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 aa11@11.com
 aa21@11.com
@@ -35,3 +36,7 @@ if ($a == $b) {
 if ($a === $b) {
    echo 'a is complete equal to b';
 }
+=======
+<?php
+
+>>>>>>> 13329656da6a22c3324cdb40ba90db37383d65ce
