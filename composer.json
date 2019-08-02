@@ -1,0 +1,5 @@
+{
+    "require": {
+        "xjzhang/redis-token": "dev-master"
+    }
+}

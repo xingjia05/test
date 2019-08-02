@@ -14,6 +14,8 @@ class Autoloader {
             if (class_exists($name, false)) {
                 return true;
             }
+        } else {
+            print_r($file);
         }
         return false;
     }

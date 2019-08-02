@@ -1,0 +1,46 @@
+[
+    {
+        "name": "xjzhang/redis-token",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/xingjia05/redis-token.git",
+            "reference": "817c56dffe8571ede14f6de855f59dac2692eb01"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/xingjia05/redis-token/zipball/817c56dffe8571ede14f6de855f59dac2692eb01",
+            "reference": "817c56dffe8571ede14f6de855f59dac2692eb01",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=7.1.0"
+        },
+        "time": "2018-10-20T11:48:47+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "TokenClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "zhangxingjia",
+                "email": "xjzhang@hillinsight.com"
+            }
+        ],
+        "description": "PHP Token Clie"
+    }
+]

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "monolog/monolog": "1.2.*",
+	"stone-breaker/test": "dev-releases/1.0.0",
+	"xingjia05/console": "dev-releases/1.0.0"
+    }
+}

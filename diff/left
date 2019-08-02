@@ -1,0 +1,58 @@
+--检验请求的sign签名是否正确
+--intable:传入的参数值组成的table，不含传入的签名值
+--salt:加入到签名字符串中的混杂字符
+--insign:请求中传入进来的签名值
+function signcheck(intable, salt, insign)
+        local keys, tmp = {}, {}
+            --提出所有的键名并按字符顺序排序
+                for k, _ in pairs(intable) do
+                        keys[#keys+1]= k
+                            end
+                                table.sort(keys)
+        --根据排序好的键名依次读取值并拼接字符串成key=value&key=value
+            for _, k in pairs(keys) do
+                    if type(intable[k]) == "string" or type(intable[k]) == "number" then
+                                tmp[#tmp+1] = k .. "=" .. tostring(intable[k])
+                                        end
+                                            end
+                                                --将salt添加到最后，计算正确的签名sign值并与传入的sign签名对比，
+                                                    local signchar = table.concat(tmp, "&") .. salt
+                                                        local rightsign = ngx.md5(signchar);
+                                                            if insign ~= rightsign then
+                                                                    --如果签名错误返回错误信息并记录日志，
+                                                                            local mess="sign error: insign,"..insign .. " right sign:" ..rightsign.. " sign_char:" .. signchar
+                                                                                    ngx.log(ngx.ERR, mess)
+            return false,mess
+                end
+                    return true
+                    end
+
+                    local args = ngx.req.get_uri_args()
+    local secretkey = '1234567890abcdefghi'
+
+    if ngx.var.arg_userId == nil or ngx.var.arg_token == nil then
+        ngx.status = ngx.HTTP_UNAUTHORIZED
+            ngx.say("{\"status\": 401, \"message\": \"ERROR Permission denied\"}")
+                return ngx.exit(ngx.HTTP_OK)
+        end
+
+        local intable = {}
+        for k, v in pairs(args) do
+            if k == "token" then
+                else
+                        intable[k] = v
+                            end
+                            end
+
+
+                            local checkStatus,checkMessage = signcheck(intable, secretkey, ngx.var.arg_token)
+    if checkStatus == false then
+        ngx.status = ngx.HTTP_UNAUTHORIZED
+            ngx.say("{\"status\": 401, \"message\": \""..checkMessage.."\"}")
+                return ngx.exit(ngx.HTTP_OK)
+        end
+        return
+
+
+
+
